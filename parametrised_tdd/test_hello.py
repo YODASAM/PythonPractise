@@ -16,3 +16,20 @@ def test_greet_parametrised(name, expected):
             greet(name)
     else:
         assert greet(name) == expected
+
+@pytest.mark.parametrize(
+    "n,expected",
+    [
+        (1, "1"),
+        (2, "2"),
+        (3, "Fizz"),
+        (5, "Buzz"),
+        (6, "Fizz"),
+        (10, "Buzz"),
+        (15, "FizzBuzz"),
+        (30, "FizzBuzz"),
+    ],
+)
+def test_fizzbuzz_parametrised(n, expected):
+    from hello import fizzbuzz
+    assert fizzbuzz(n) == expected
